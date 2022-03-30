@@ -40,8 +40,8 @@ namespace Calculadora
             this.btnOito = new System.Windows.Forms.Button();
             this.btnSete = new System.Windows.Forms.Button();
             this.btnPonto = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtDisplay = new System.Windows.Forms.TextBox();
+            this.btnZero = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -159,24 +159,25 @@ namespace Calculadora
             this.btnPonto.Text = ",";
             this.btnPonto.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtDisplay
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(50, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 29);
-            this.textBox1.TabIndex = 11;
+            this.txtDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisplay.Location = new System.Drawing.Point(50, 65);
+            this.txtDisplay.Name = "txtDisplay";
+            this.txtDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDisplay.Size = new System.Drawing.Size(214, 29);
+            this.txtDisplay.TabIndex = 11;
             // 
-            // button2
+            // btnZero
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(50, 250);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 27);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "0";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button5_Click);
+            this.btnZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZero.Location = new System.Drawing.Point(50, 245);
+            this.btnZero.Name = "btnZero";
+            this.btnZero.Size = new System.Drawing.Size(94, 32);
+            this.btnZero.TabIndex = 0;
+            this.btnZero.Text = "0";
+            this.btnZero.UseVisualStyleBackColor = true;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             // 
             // Calculadora
             // 
@@ -184,7 +185,7 @@ namespace Calculadora
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(489, 325);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btnSete);
             this.Controls.Add(this.btnQuatro);
             this.Controls.Add(this.btnUm);
@@ -192,7 +193,7 @@ namespace Calculadora
             this.Controls.Add(this.btnNove);
             this.Controls.Add(this.btnCinco);
             this.Controls.Add(this.btnSeis);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnZero);
             this.Controls.Add(this.btnDois);
             this.Controls.Add(this.btnPonto);
             this.Controls.Add(this.btnTres);
@@ -208,9 +209,8 @@ namespace Calculadora
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button txtDisplay;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtDisplay;
+        private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.Button btnUm;
         private System.Windows.Forms.Button btnDois;
         private System.Windows.Forms.Button btnTres;
@@ -221,7 +221,7 @@ namespace Calculadora
         private System.Windows.Forms.Button btnOito;
         private System.Windows.Forms.Button btnSete;
         private System.Windows.Forms.Button btnPonto;
-        private System.Windows.Forms.TextBox txtDisplay;
+       
     }
 }
 

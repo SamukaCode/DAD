@@ -48,6 +48,13 @@ namespace Calculadora
             {
                 txtDisplay.Text = txtDisplay.Text + "0";
             }
+            else
+            {
+                txtDisplay.Text = "0";
+            }
         }
+
+        
+       
     }
 }
