@@ -79,7 +79,9 @@ namespace Calculadora
                 case "*":
                     resultado = numero1 * numero2;
                     break;
-
+                case "y":
+                    resultado = System.Math.Pow(numero1, numero2);
+                    break;
             }
             txtDisplay.Text = resultado.ToString();
         }
@@ -202,6 +204,44 @@ namespace Calculadora
             }
             if (txtDisplay.Text.Trim().Contains(",")) return;
             txtDisplay.Text += ",";
+        }
+
+        private void btnInverte_Click(object sender, EventArgs e)
+        {
+            if (!txtDisplay.Text.Trim().Contains("-"))
+                txtDisplay.Text = "-" + txtDisplay.Text;
+            else
+                txtDisplay.Text = txtDisplay.Text.Replace("-", "");
+        }
+
+        private void btnEleva_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(Convert.ToDouble(txtDisplay.Text) * Convert.ToDouble(txtDisplay.Text));
+        }
+
+        private void btnElevay_Click(object sender, EventArgs e)
+        {
+            adicionarOperacao("y");
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(System.Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
+        }
+
+        private void btnFraciona_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(1 / (Convert.ToDouble(txtDisplay.Text)));
+        }
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = string.Empty;
+        }
+
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
         }
     }
 }

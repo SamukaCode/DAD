@@ -163,9 +163,10 @@ namespace Calculadora
             this.txtDisplay.Location = new System.Drawing.Point(15, 12);
             this.txtDisplay.MaxLength = 10;
             this.txtDisplay.Name = "txtDisplay";
-            this.txtDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDisplay.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDisplay.Size = new System.Drawing.Size(346, 63);
             this.txtDisplay.TabIndex = 11;
+            this.txtDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnZero
             // 
@@ -198,6 +199,7 @@ namespace Calculadora
             this.btnCE.TabIndex = 13;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnBackspace
             // 
@@ -209,6 +211,7 @@ namespace Calculadora
             this.btnBackspace.TabStop = false;
             this.btnBackspace.Text = "←";
             this.btnBackspace.UseVisualStyleBackColor = true;
+            this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
             // 
             // btnEleva
             // 
@@ -220,6 +223,7 @@ namespace Calculadora
             this.btnEleva.TabStop = false;
             this.btnEleva.Text = "x²";
             this.btnEleva.UseVisualStyleBackColor = true;
+            this.btnEleva.Click += new System.EventHandler(this.btnEleva_Click);
             // 
             // btnElevay
             // 
@@ -231,6 +235,7 @@ namespace Calculadora
             this.btnElevay.TabStop = false;
             this.btnElevay.Text = "x^y";
             this.btnElevay.UseVisualStyleBackColor = true;
+            this.btnElevay.Click += new System.EventHandler(this.btnElevay_Click);
             // 
             // btnSqrt
             // 
@@ -241,6 +246,7 @@ namespace Calculadora
             this.btnSqrt.TabIndex = 16;
             this.btnSqrt.Text = "√x";
             this.btnSqrt.UseVisualStyleBackColor = true;
+            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
             // 
             // btnIgual
             // 
@@ -262,6 +268,7 @@ namespace Calculadora
             this.btnFraciona.TabIndex = 15;
             this.btnFraciona.Text = "1/x";
             this.btnFraciona.UseVisualStyleBackColor = true;
+            this.btnFraciona.Click += new System.EventHandler(this.btnFraciona_Click);
             // 
             // btnDivide
             // 
@@ -307,6 +314,7 @@ namespace Calculadora
             this.btnInverte.TabIndex = 23;
             this.btnInverte.Text = "+/-";
             this.btnInverte.UseVisualStyleBackColor = true;
+            this.btnInverte.Click += new System.EventHandler(this.btnInverte_Click);
             // 
             // btnSoma
             // 
