@@ -80,7 +80,7 @@ namespace Calculadora
                     resultado = numero1 * numero2;
                     break;
                 case "y":
-                    resultado = System.Math.Pow(numero1, numero2);
+                    resultado = Math.Pow(numero1, numero2);
                     break;
             }
             txtDisplay.Text = resultado.ToString();

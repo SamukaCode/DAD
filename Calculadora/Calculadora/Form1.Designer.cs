@@ -29,6 +29,7 @@ namespace Calculadora
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculadora));
             this.button1 = new System.Windows.Forms.Button();
             this.btnUm = new System.Windows.Forms.Button();
             this.btnTres = new System.Windows.Forms.Button();
@@ -382,6 +383,7 @@ namespace Calculadora
             this.Controls.Add(this.btnTres);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCalculadora";
