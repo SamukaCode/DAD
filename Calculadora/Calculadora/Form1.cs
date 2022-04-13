@@ -48,7 +48,10 @@ namespace Calculadora
             {
                 txtDisplay.Text = digito;
             }
-            else
+            else if (txtDisplay.Text.Trim().Equals("∞"))
+            {
+                LimparCampos();
+            }
             {
                 txtDisplay.Text += digito;
             }
@@ -208,14 +211,26 @@ namespace Calculadora
 
         private void btnInverte_Click(object sender, EventArgs e)
         {
-            if (!txtDisplay.Text.Trim().Contains("-"))
-                txtDisplay.Text = "-" + txtDisplay.Text;
+            if (txtDisplay.Text.Trim().Equals("0"))
+            {
+
+            }
+            else if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
             else
-                txtDisplay.Text = txtDisplay.Text.Replace("-", "");
+                txtDisplay.Text = Convert.ToString(-1 * Convert.ToDouble(txtDisplay.Text));
+
         }
 
         private void btnEleva_Click(object sender, EventArgs e)
         {
+            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
+            else
             txtDisplay.Text = Convert.ToString(Convert.ToDouble(txtDisplay.Text) * Convert.ToDouble(txtDisplay.Text));
         }
 
@@ -226,12 +241,22 @@ namespace Calculadora
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            txtDisplay.Text = Convert.ToString(System.Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
+            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
+            else
+                txtDisplay.Text = Convert.ToString(System.Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
         }
 
         private void btnFraciona_Click(object sender, EventArgs e)
         {
-            txtDisplay.Text = Convert.ToString(1 / (Convert.ToDouble(txtDisplay.Text)));
+            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
+            else
+                txtDisplay.Text = Convert.ToString(1 / (Convert.ToDouble(txtDisplay.Text)));
         }
 
         private void btnCE_Click(object sender, EventArgs e)
@@ -241,6 +266,11 @@ namespace Calculadora
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
+            if(txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
+            else
             txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
         }
     }
