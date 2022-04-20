@@ -42,7 +42,7 @@ namespace Calculadora
             }
         }
 
-        void adicionarDigito(String digito)
+        void adicionarDigito(string digito)
         {
             if (txtDisplay.Text.Trim().Equals("0"))
             {
@@ -167,7 +167,7 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            if(!txtDisplay.Text.Trim().Equals(String.Empty))
+            if (!txtDisplay.Text.Trim().Equals(string.Empty))
             {
                 numero2 = Convert.ToDouble(txtDisplay.Text.Trim());
                 Calcular();
@@ -211,27 +211,18 @@ namespace Calculadora
 
         private void btnInverte_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text.Trim().Equals("0"))
+            if (!txtDisplay.Text.Trim().Equals("0") && !txtDisplay.Text.Trim().Equals(string.Empty))
             {
-
-            }
-            else if (txtDisplay.Text.Trim().Equals(String.Empty))
-            {
-
-            }
-            else
                 txtDisplay.Text = Convert.ToString(-1 * Convert.ToDouble(txtDisplay.Text));
-
+            }
         }
 
         private void btnEleva_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            if (!txtDisplay.Text.Trim().Equals(string.Empty))
             {
-
+                txtDisplay.Text = Convert.ToString(Convert.ToDouble(txtDisplay.Text) * Convert.ToDouble(txtDisplay.Text));
             }
-            else
-            txtDisplay.Text = Convert.ToString(Convert.ToDouble(txtDisplay.Text) * Convert.ToDouble(txtDisplay.Text));
         }
 
         private void btnElevay_Click(object sender, EventArgs e)
@@ -241,22 +232,18 @@ namespace Calculadora
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            if (!txtDisplay.Text.Trim().Equals(string.Empty))
             {
-
+                txtDisplay.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
             }
-            else
-                txtDisplay.Text = Convert.ToString(System.Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
         }
 
         private void btnFraciona_Click(object sender, EventArgs e)
         {
-            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            if (!txtDisplay.Text.Trim().Equals(string.Empty))
             {
-
-            }
-            else
                 txtDisplay.Text = Convert.ToString(1 / (Convert.ToDouble(txtDisplay.Text)));
+            }
         }
 
         private void btnCE_Click(object sender, EventArgs e)
@@ -266,12 +253,10 @@ namespace Calculadora
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            if(txtDisplay.Text.Trim().Equals(String.Empty))
+            if (!txtDisplay.Text.Trim().Equals(string.Empty))
             {
-
+                txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
             }
-            else
-            txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
         }
     }
 }

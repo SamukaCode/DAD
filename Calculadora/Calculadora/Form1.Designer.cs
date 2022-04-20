@@ -130,7 +130,6 @@ namespace Calculadora
             this.btnNove.Name = "btnNove";
             this.btnNove.Size = new System.Drawing.Size(60, 60);
             this.btnNove.TabIndex = 9;
-            this.btnNove.TabStop = false;
             this.btnNove.Text = "9";
             this.btnNove.UseVisualStyleBackColor = true;
             this.btnNove.Click += new System.EventHandler(this.button10_Click);
@@ -141,7 +140,7 @@ namespace Calculadora
             this.btnSete.Location = new System.Drawing.Point(15, 160);
             this.btnSete.Name = "btnSete";
             this.btnSete.Size = new System.Drawing.Size(60, 60);
-            this.btnSete.TabIndex = 6;
+            this.btnSete.TabIndex = 7;
             this.btnSete.Text = "7";
             this.btnSete.UseVisualStyleBackColor = true;
             this.btnSete.Click += new System.EventHandler(this.btnSete_Click);
@@ -186,7 +185,7 @@ namespace Calculadora
             this.btnC.Location = new System.Drawing.Point(15, 94);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(60, 60);
-            this.btnC.TabIndex = 12;
+            this.btnC.TabIndex = 11;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
@@ -197,7 +196,7 @@ namespace Calculadora
             this.btnCE.Location = new System.Drawing.Point(81, 94);
             this.btnCE.Name = "btnCE";
             this.btnCE.Size = new System.Drawing.Size(60, 60);
-            this.btnCE.TabIndex = 13;
+            this.btnCE.TabIndex = 12;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
             this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
@@ -208,8 +207,7 @@ namespace Calculadora
             this.btnBackspace.Location = new System.Drawing.Point(149, 94);
             this.btnBackspace.Name = "btnBackspace";
             this.btnBackspace.Size = new System.Drawing.Size(60, 60);
-            this.btnBackspace.TabIndex = 14;
-            this.btnBackspace.TabStop = false;
+            this.btnBackspace.TabIndex = 13;
             this.btnBackspace.Text = "←";
             this.btnBackspace.UseVisualStyleBackColor = true;
             this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
@@ -221,7 +219,6 @@ namespace Calculadora
             this.btnEleva.Name = "btnEleva";
             this.btnEleva.Size = new System.Drawing.Size(80, 60);
             this.btnEleva.TabIndex = 19;
-            this.btnEleva.TabStop = false;
             this.btnEleva.Text = "x²";
             this.btnEleva.UseVisualStyleBackColor = true;
             this.btnEleva.Click += new System.EventHandler(this.btnEleva_Click);
@@ -232,9 +229,8 @@ namespace Calculadora
             this.btnElevay.Location = new System.Drawing.Point(281, 160);
             this.btnElevay.Name = "btnElevay";
             this.btnElevay.Size = new System.Drawing.Size(80, 60);
-            this.btnElevay.TabIndex = 17;
-            this.btnElevay.TabStop = false;
-            this.btnElevay.Text = "x^y";
+            this.btnElevay.TabIndex = 20;
+            this.btnElevay.Text = "xʸ";
             this.btnElevay.UseVisualStyleBackColor = true;
             this.btnElevay.Click += new System.EventHandler(this.btnElevay_Click);
             // 
@@ -244,7 +240,7 @@ namespace Calculadora
             this.btnSqrt.Location = new System.Drawing.Point(281, 226);
             this.btnSqrt.Name = "btnSqrt";
             this.btnSqrt.Size = new System.Drawing.Size(80, 60);
-            this.btnSqrt.TabIndex = 16;
+            this.btnSqrt.TabIndex = 21;
             this.btnSqrt.Text = "√x";
             this.btnSqrt.UseVisualStyleBackColor = true;
             this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
@@ -255,7 +251,7 @@ namespace Calculadora
             this.btnIgual.Location = new System.Drawing.Point(281, 358);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(80, 60);
-            this.btnIgual.TabIndex = 18;
+            this.btnIgual.TabIndex = 23;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = true;
             this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
@@ -266,8 +262,8 @@ namespace Calculadora
             this.btnFraciona.Location = new System.Drawing.Point(281, 292);
             this.btnFraciona.Name = "btnFraciona";
             this.btnFraciona.Size = new System.Drawing.Size(80, 60);
-            this.btnFraciona.TabIndex = 15;
-            this.btnFraciona.Text = "1/x";
+            this.btnFraciona.TabIndex = 22;
+            this.btnFraciona.Text = "¹/x";
             this.btnFraciona.UseVisualStyleBackColor = true;
             this.btnFraciona.Click += new System.EventHandler(this.btnFraciona_Click);
             // 
@@ -277,8 +273,7 @@ namespace Calculadora
             this.btnDivide.Location = new System.Drawing.Point(215, 94);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(60, 60);
-            this.btnDivide.TabIndex = 24;
-            this.btnDivide.TabStop = false;
+            this.btnDivide.TabIndex = 14;
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = true;
             this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
@@ -289,8 +284,7 @@ namespace Calculadora
             this.btnMultiplica.Location = new System.Drawing.Point(215, 160);
             this.btnMultiplica.Name = "btnMultiplica";
             this.btnMultiplica.Size = new System.Drawing.Size(60, 60);
-            this.btnMultiplica.TabIndex = 22;
-            this.btnMultiplica.TabStop = false;
+            this.btnMultiplica.TabIndex = 15;
             this.btnMultiplica.Text = "×";
             this.btnMultiplica.UseVisualStyleBackColor = true;
             this.btnMultiplica.Click += new System.EventHandler(this.btnMultiplica_Click);
@@ -301,7 +295,7 @@ namespace Calculadora
             this.btnSubtrai.Location = new System.Drawing.Point(215, 226);
             this.btnSubtrai.Name = "btnSubtrai";
             this.btnSubtrai.Size = new System.Drawing.Size(60, 60);
-            this.btnSubtrai.TabIndex = 21;
+            this.btnSubtrai.TabIndex = 16;
             this.btnSubtrai.Text = "-";
             this.btnSubtrai.UseVisualStyleBackColor = true;
             this.btnSubtrai.Click += new System.EventHandler(this.btnSubtrai_Click);
@@ -312,7 +306,7 @@ namespace Calculadora
             this.btnInverte.Location = new System.Drawing.Point(215, 358);
             this.btnInverte.Name = "btnInverte";
             this.btnInverte.Size = new System.Drawing.Size(60, 60);
-            this.btnInverte.TabIndex = 23;
+            this.btnInverte.TabIndex = 18;
             this.btnInverte.Text = "+/-";
             this.btnInverte.UseVisualStyleBackColor = true;
             this.btnInverte.Click += new System.EventHandler(this.btnInverte_Click);
@@ -323,7 +317,7 @@ namespace Calculadora
             this.btnSoma.Location = new System.Drawing.Point(215, 292);
             this.btnSoma.Name = "btnSoma";
             this.btnSoma.Size = new System.Drawing.Size(60, 60);
-            this.btnSoma.TabIndex = 20;
+            this.btnSoma.TabIndex = 17;
             this.btnSoma.Text = "+";
             this.btnSoma.UseVisualStyleBackColor = true;
             this.btnSoma.Click += new System.EventHandler(this.btnSoma_Click);
@@ -334,7 +328,7 @@ namespace Calculadora
             this.btnOito.Location = new System.Drawing.Point(81, 160);
             this.btnOito.Name = "btnOito";
             this.btnOito.Size = new System.Drawing.Size(60, 60);
-            this.btnOito.TabIndex = 25;
+            this.btnOito.TabIndex = 8;
             this.btnOito.Text = "8";
             this.btnOito.UseVisualStyleBackColor = true;
             this.btnOito.Click += new System.EventHandler(this.btnOito_Click);
@@ -345,7 +339,7 @@ namespace Calculadora
             this.btnDois.Location = new System.Drawing.Point(81, 292);
             this.btnDois.Name = "btnDois";
             this.btnDois.Size = new System.Drawing.Size(60, 60);
-            this.btnDois.TabIndex = 26;
+            this.btnDois.TabIndex = 2;
             this.btnDois.Text = "2";
             this.btnDois.UseVisualStyleBackColor = true;
             this.btnDois.Click += new System.EventHandler(this.btnDois_Click);
@@ -382,6 +376,7 @@ namespace Calculadora
             this.Controls.Add(this.btnPonto);
             this.Controls.Add(this.btnTres);
             this.Controls.Add(this.button1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
