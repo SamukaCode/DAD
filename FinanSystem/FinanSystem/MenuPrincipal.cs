@@ -13,6 +13,7 @@ namespace FinanSystem
     public partial class MenuPrincipal : Form
     {
         private int childFormNumber = 0;
+        private static frmCategoria fCategoria;
 
         public MenuPrincipal()
         {
@@ -121,16 +122,12 @@ namespace FinanSystem
 
         private void subMenuCategoria_Click(object sender, EventArgs e)
         {            
-            if (Application.OpenForms.OfType<frmCategoria>().Count() > 0)
+            if (fCategoria == null)
             {
-                Application.OpenForms.OfType<frmCategoria>().First().Focus();
-            }
-            else
-            {
-                frmCategoria fCategoria = new frmCategoria();
+                fCategoria = new frmCategoria();
                 fCategoria.MdiParent = this;
-                fCategoria.Show();
             }
+            fCategoria.Show();
         }
     }
 }
