@@ -14,18 +14,30 @@ namespace FinanSystem
     {
         private bool Insercao = false;
         private bool Edicao = false;
+        // NOVO ===========
+        private Categoria categoria = new Categoria();
+        private List<Categoria> lstCategoria = new List<Categoria>();
+        private BindingSource bsCategoria;
+        // ======================
 
         public frmCategoria()
         {
             InitializeComponent();
+            lstCategoria = categoria.GeraCategorias();
         }
+        // NOVO =========================
+        private void carregaGridCategoria()
+        {
+            bsCategoria = new BindingSource();
+            bsCategoria.DataSource = lstCategoria;
+            dgCategoria.Rows.Clear();
+            dgCategoria.DataSource = bsCategoria;
+            dgCategoria.Refresh();
+        }
+        // ================
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            txtNome.Text = "Combustivel";
-            txtDesc.Text = "Consumo de combustível";
-            rbtnDespesa.Checked = true;
-            cbAtiva.Checked = true;
             groupBox1.Enabled = false;
             btnNovo.Visible = true;
             btnNovo.Enabled = true;
@@ -35,8 +47,36 @@ namespace FinanSystem
             btnExcluir.Visible = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = false;
-        }
 
+            // NOVO =========================
+            dgCategoria.ColumnCount = 5;
+            dgCategoria.AutoGenerateColumns = false;
+            dgCategoria.Columns[0].Width = 50;
+            dgCategoria.Columns[0].HeaderText = "ID";
+            dgCategoria.Columns[0].DataPropertyName = "Id";
+            dgCategoria.Columns[0].Visible = false;
+            dgCategoria.Columns[1].Width = 200;
+            dgCategoria.Columns[1].HeaderText = "NOME";
+            dgCategoria.Columns[1].DataPropertyName = "Nome";
+            dgCategoria.Columns[2].Width = 400;
+            dgCategoria.Columns[2].HeaderText = "DESCRIÇÃO";
+            dgCategoria.Columns[2].DataPropertyName = "Descricao";
+            dgCategoria.Columns[3].Width = 50;
+            dgCategoria.Columns[3].HeaderText = "TIPO";
+            dgCategoria.Columns[3].DataPropertyName = "Tipo";
+            dgCategoria.Columns[4].Width = 50;
+            dgCategoria.Columns[4].HeaderText = "STATUS";
+            dgCategoria.Columns[4].DataPropertyName = "Status";
+
+            dgCategoria.AllowUserToAddRows = false;
+            dgCategoria.AllowUserToDeleteRows = false;
+            dgCategoria.MultiSelect = false;
+            dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            carregaGridCategoria();
+            // ==========================
+
+        }
         private void salvarRegistro(object sender, EventArgs e)
         {
             MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
