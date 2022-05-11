@@ -73,7 +73,6 @@ namespace FinanSystem
             this.cbAtiva.TabIndex = 8;
             this.cbAtiva.Text = "Ativa";
             this.cbAtiva.UseVisualStyleBackColor = true;
-            this.cbAtiva.CheckedChanged += new System.EventHandler(this.cbAtiva_CheckedChanged);
             // 
             // lblStatus
             // 
@@ -165,6 +164,7 @@ namespace FinanSystem
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.alterarRegistro);
             // 
             // btnExcluir
             // 
@@ -194,6 +194,7 @@ namespace FinanSystem
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.cancelaOperacao);
             // 
             // frmCategoria
             // 
@@ -212,6 +213,7 @@ namespace FinanSystem
             this.Name = "frmCategoria";
             this.ShowIcon = false;
             this.Text = "frmCategoria";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fecharForm);
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
