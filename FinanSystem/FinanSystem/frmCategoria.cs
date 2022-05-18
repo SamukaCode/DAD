@@ -14,6 +14,8 @@ namespace FinanSystem
     {
         private bool Insercao = false;
         private bool Edicao = false;
+        private String nome, desc;
+        private bool rec, desp, ativa;
         // NOVO ===========
         private Categoria categoria = new Categoria();
         private List<Categoria> lstCategoria = new List<Categoria>();
@@ -40,42 +42,11 @@ namespace FinanSystem
         {
             groupBox1.Enabled = false;
             btnNovo.Visible = true;
-            btnNovo.Enabled = true;
             btnAlterar.Visible = true;
-            btnAlterar.Enabled = true;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = false;
-
-            // NOVO =========================
-            dgCategoria.ColumnCount = 5;
-            dgCategoria.AutoGenerateColumns = false;
-            dgCategoria.Columns[0].Width = 50;
-            dgCategoria.Columns[0].HeaderText = "ID";
-            dgCategoria.Columns[0].DataPropertyName = "Id";
-            dgCategoria.Columns[0].Visible = false;
-            dgCategoria.Columns[1].Width = 200;
-            dgCategoria.Columns[1].HeaderText = "NOME";
-            dgCategoria.Columns[1].DataPropertyName = "Nome";
-            dgCategoria.Columns[2].Width = 400;
-            dgCategoria.Columns[2].HeaderText = "DESCRIÇÃO";
-            dgCategoria.Columns[2].DataPropertyName = "Descricao";
-            dgCategoria.Columns[3].Width = 50;
-            dgCategoria.Columns[3].HeaderText = "TIPO";
-            dgCategoria.Columns[3].DataPropertyName = "Tipo";
-            dgCategoria.Columns[4].Width = 50;
-            dgCategoria.Columns[4].HeaderText = "STATUS";
-            dgCategoria.Columns[4].DataPropertyName = "Status";
-
-            dgCategoria.AllowUserToAddRows = false;
-            dgCategoria.AllowUserToDeleteRows = false;
-            dgCategoria.MultiSelect = false;
-            dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            carregaGridCategoria();
-            // ==========================
-
         }
         private void salvarRegistro(object sender, EventArgs e)
         {
@@ -109,6 +80,7 @@ namespace FinanSystem
             txtNome.Focus();
             btnAlterar.Enabled = false;
             btnCancelar.Visible = true;
+            btnCancelar.Enabled = true;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
             btnNovo.Enabled = false;
@@ -134,12 +106,18 @@ namespace FinanSystem
             if (Edicao || Insercao)
             {
                 e.Cancel = true;
-                MessageBox.Show("Fique aqui!", "Aviso do sistema!", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Termine (salve ou cancele) a operação atual para fechar o formulário!", "Aviso do sistema!", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
         private void alterarRegistro(object sender, EventArgs e)
         {
+            nome = txtNome.Text;
+            desc = txtDesc.Text;
+            rec = rbtnReceita.Checked;
+            desp = rbtnDespesa.Checked;
+            ativa = cbAtiva.Checked;
+            // ==
             btnNovo.Enabled = false;
             btnAlterar.Enabled = false;
             btnExcluir.Visible = false;
@@ -161,8 +139,26 @@ namespace FinanSystem
             btnCancelar.Visible = false;
             groupBox1.Enabled = false;
             btnNovo.Focus();
-            Insercao = true;
+            if (Insercao && Edicao)
+            {
+                txtNome.Text = "Combustivel";
+                txtDesc.Text = "Consumo de combustível";
+                rbtnDespesa.Checked = true;
+                cbAtiva.Checked = true;
+                groupBox1.Enabled = false;
+            } else if (Insercao==false&&Edicao)
+            {
+                txtNome.Text = nome;
+                txtDesc.Text = desc;
+                rbtnDespesa.Checked = desp;
+                rbtnReceita.Checked = rec;
+                cbAtiva.Checked = ativa;
+                nome = string.Empty;
+                desc = string.Empty;
+            }
+            Insercao = false;
             Edicao = false;
+            
         }
 
     }

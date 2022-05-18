@@ -331,14 +331,14 @@ namespace FinanSystem
             // subMenuCategoria
             // 
             this.subMenuCategoria.Name = "subMenuCategoria";
-            this.subMenuCategoria.Size = new System.Drawing.Size(180, 24);
+            this.subMenuCategoria.Size = new System.Drawing.Size(143, 24);
             this.subMenuCategoria.Text = "Categoria";
             this.subMenuCategoria.Click += new System.EventHandler(this.subMenuCategoria_Click);
             // 
             // subMenuConta
             // 
             this.subMenuConta.Name = "subMenuConta";
-            this.subMenuConta.Size = new System.Drawing.Size(180, 24);
+            this.subMenuConta.Size = new System.Drawing.Size(143, 24);
             this.subMenuConta.Text = "Conta";
             // 
             // toolsMenu
@@ -456,6 +456,7 @@ namespace FinanSystem
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
             this.aboutToolStripMenuItem.Text = "&Sobre ... ...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // toolStrip
             // 
