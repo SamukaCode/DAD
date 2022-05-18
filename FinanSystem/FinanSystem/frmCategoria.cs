@@ -142,6 +142,8 @@ namespace FinanSystem
             rbtnDespesa.Checked = false;
             rbtnReceita.Checked = false;
             cbAtiva.Checked = true;
+
+            dgCategoria.Enabled = false;
         }
 
         private void limparCampos()
