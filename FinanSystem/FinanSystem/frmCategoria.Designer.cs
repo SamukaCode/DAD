@@ -206,6 +206,7 @@ namespace FinanSystem
             this.dgCategoria.RowTemplate.Height = 25;
             this.dgCategoria.Size = new System.Drawing.Size(629, 213);
             this.dgCategoria.TabIndex = 6;
+            this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellContentClick);
             // 
             // frmCategoria
             // 

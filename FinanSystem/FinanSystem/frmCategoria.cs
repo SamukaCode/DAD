@@ -47,17 +47,69 @@ namespace FinanSystem
             btnExcluir.Visible = true;
             btnExcluir.Enabled = true;
             btnCancelar.Enabled = false;
+            dgCategoria.ColumnCount = 5;
+            dgCategoria.AutoGenerateColumns = false;
+            dgCategoria.Columns[0].Width = 50;
+            dgCategoria.Columns[0].HeaderText = "ID";
+            dgCategoria.Columns[0].DataPropertyName = "Id";
+            dgCategoria.Columns[0].Visible = false;
+            dgCategoria.Columns[1].Width = 200;
+            dgCategoria.Columns[1].HeaderText = "NOME";
+            dgCategoria.Columns[1].DataPropertyName = "Nome";
+            dgCategoria.Columns[2].Width = 400;
+            dgCategoria.Columns[2].HeaderText = "DESCRIÇÃO";
+            dgCategoria.Columns[2].DataPropertyName = "Descricao";
+            dgCategoria.Columns[3].Width = 50;
+            dgCategoria.Columns[3].HeaderText = "TIPO";
+            dgCategoria.Columns[3].DataPropertyName = "Tipo";
+            dgCategoria.Columns[4].Width = 50;
+            dgCategoria.Columns[4].HeaderText = "STATUS";
+            dgCategoria.Columns[4].DataPropertyName = "Status";
+
+            dgCategoria.AllowUserToAddRows = false;
+            dgCategoria.AllowUserToDeleteRows = false;
+            dgCategoria.MultiSelect = false;
+            dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            carregaGridCategoria();
+
         }
         private void salvarRegistro(object sender, EventArgs e)
         {
-            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            if (Insercao)
+            {
+                var nome = txtNome.Text.Trim();
+                var descr = txtDesc.Text.Trim();
+                var tipo = rbtnReceita.Checked ? 1 : 2;
+                var status = cbAtiva.Checked ? 1 : 0;
+                categoria.AddToList(3, nome, descr, tipo, status);
+            }
+            if (Edicao)
+            {
+                Categoria ct = lstCategoria.Find(item => item.Nome == txtNome.Text.Trim());
+                if (ct != null)
+                {
+                    ct.Descricao = txtDesc.Text.Trim();
+                    ct.Tipo = rbtnReceita.Checked ? 1 : 2;
+                    
+                    ct.Status = cbAtiva.Checked ? 1 : 0;
+                }
+            }
+
+            carregaGridCategoria();
+
+            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             btnNovo.Enabled = true;
             btnNovo.Focus();
+            txtNome.Enabled = true;
             groupBox1.Enabled = false;
             btnAlterar.Enabled = true;
             btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
+            dgCategoria.Enabled = true; // Novo!
+
             Insercao = false;
             Edicao = false;
         }
@@ -99,6 +151,11 @@ namespace FinanSystem
             rbtnDespesa.Checked = false;
             rbtnReceita.Checked = false;
             cbAtiva.Checked = false;
+        }
+
+        private void dgCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void fecharForm(object sender, FormClosingEventArgs e)
@@ -160,6 +217,26 @@ namespace FinanSystem
             Edicao = false;
             
         }
+
+        private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgCategoria.RowCount > 0)
+            {
+                txtNome.Text = dgCategoria.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDesc.Text = dgCategoria.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[3].Value.ToString()) == 1)
+                    rbtnReceita.Checked = true;
+                else
+                    rbtnDespesa.Checked = true;
+
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[4].Value.ToString()) == 1)
+                    cbAtiva.Checked = true; 
+                else
+                    cbAtiva.Checked = false;
+            }
+        }
+
 
     }
 }
