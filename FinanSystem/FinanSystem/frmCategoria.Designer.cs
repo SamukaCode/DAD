@@ -90,7 +90,6 @@ namespace FinanSystem
             this.rbtnDespesa.Name = "rbtnDespesa";
             this.rbtnDespesa.Size = new System.Drawing.Size(68, 19);
             this.rbtnDespesa.TabIndex = 6;
-            this.rbtnDespesa.TabStop = true;
             this.rbtnDespesa.Text = "Despesa";
             this.rbtnDespesa.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +100,6 @@ namespace FinanSystem
             this.rbtnReceita.Name = "rbtnReceita";
             this.rbtnReceita.Size = new System.Drawing.Size(63, 19);
             this.rbtnReceita.TabIndex = 5;
-            this.rbtnReceita.TabStop = true;
             this.rbtnReceita.Text = "Receita";
             this.rbtnReceita.UseVisualStyleBackColor = true;
             // 
