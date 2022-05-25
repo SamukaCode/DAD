@@ -138,6 +138,7 @@ namespace FinanSystem
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(326, 23);
             this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // lblNome
             // 
@@ -207,6 +208,7 @@ namespace FinanSystem
             this.dgCategoria.Size = new System.Drawing.Size(629, 213);
             this.dgCategoria.TabIndex = 6;
             this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_CellContentClick);
+            this.dgCategoria.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCategoria_RowEnter);
             // 
             // frmCategoria
             // 

@@ -14,8 +14,6 @@ namespace FinanSystem
     {
         private bool Insercao = false;
         private bool Edicao = false;
-        private String nome, desc;
-        private bool rec, desp, ativa;
         // NOVO ===========
         private Categoria categoria = new Categoria();
         private List<Categoria> lstCategoria = new List<Categoria>();
@@ -27,12 +25,30 @@ namespace FinanSystem
             InitializeComponent();
             lstCategoria = categoria.GeraCategorias();
         }
+
+        private void preencheCampos()
+        {
+            txtNome.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[1].Value.ToString();
+            txtDesc.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[2].Value.ToString();
+
+            if (Convert.ToInt16(dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[3].Value.ToString()) == 1)
+                rbtnReceita.Checked = true;
+            else
+                rbtnDespesa.Checked = true;
+
+            if (Convert.ToInt16(dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[4].Value.ToString()) == 1)
+                cbAtiva.Checked = true;
+            else
+                cbAtiva.Checked = false;
+
+
+        }
         // NOVO =========================
         private void carregaGridCategoria()
         {
             bsCategoria = new BindingSource();
             bsCategoria.DataSource = lstCategoria;
-            dgCategoria.Rows.Clear();
+            // dgCategoria.Rows.Clear();
             dgCategoria.DataSource = bsCategoria;
             dgCategoria.Refresh();
         }
@@ -69,6 +85,7 @@ namespace FinanSystem
             dgCategoria.AllowUserToAddRows = false;
             dgCategoria.AllowUserToDeleteRows = false;
             dgCategoria.MultiSelect = false;
+            dgCategoria.ReadOnly = true;
             dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             carregaGridCategoria();
@@ -91,7 +108,7 @@ namespace FinanSystem
                 {
                     ct.Descricao = txtDesc.Text.Trim();
                     ct.Tipo = rbtnReceita.Checked ? 1 : 2;
-                    
+
                     ct.Status = cbAtiva.Checked ? 1 : 0;
                 }
             }
@@ -108,7 +125,7 @@ namespace FinanSystem
             btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
-            dgCategoria.Enabled = true; // Novo!
+            dgCategoria.Enabled = true;
 
             Insercao = false;
             Edicao = false;
@@ -116,20 +133,26 @@ namespace FinanSystem
 
         private void excluiRegistro(object sender, EventArgs e)
         {
+            if (dgCategoria.RowCount > 0) { 
             DialogResult resp;
             resp = MessageBox.Show("Confirma exclusão?", "Aviso do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resp == DialogResult.Yes)
             {
+                dgCategoria.Rows.RemoveAt(dgCategoria.CurrentRow.Index);
                 limparCampos();
                 resp = MessageBox.Show("Registro excluído com sucesso!", "Aviso do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 btnNovo.Focus();
             }
+        }
+        else
+                MessageBox.Show("Não há um registro selecionado.", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void novoRegistro(object sender, EventArgs e)
         {
             limparCampos();
             txtNome.Focus();
+            txtNome.Enabled = true;
             btnAlterar.Enabled = false;
             btnCancelar.Visible = true;
             btnCancelar.Enabled = true;
@@ -139,9 +162,6 @@ namespace FinanSystem
             groupBox1.Enabled = true;
             Insercao = true;
             Edicao = true;
-            rbtnDespesa.Checked = false;
-            rbtnReceita.Checked = false;
-            cbAtiva.Checked = true;
 
             dgCategoria.Enabled = false;
         }
@@ -169,24 +189,32 @@ namespace FinanSystem
             }
         }
 
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void alterarRegistro(object sender, EventArgs e)
         {
-            nome = txtNome.Text;
-            desc = txtDesc.Text;
-            rec = rbtnReceita.Checked;
-            desp = rbtnDespesa.Checked;
-            ativa = cbAtiva.Checked;
-            // ==
-            btnNovo.Enabled = false;
-            btnAlterar.Enabled = false;
-            btnExcluir.Visible = false;
-            btnSalvar.Visible = true;
-            btnCancelar.Visible = true;
-            btnCancelar.Enabled = true;
-            groupBox1.Enabled = true;
-            txtNome.Focus();
-            Insercao = false;
-            Edicao = true;
+            
+            if (dgCategoria.RowCount != 0)
+            {
+                btnNovo.Enabled = false;
+                btnAlterar.Enabled = false;
+                btnExcluir.Visible = false;
+                btnSalvar.Visible = true;
+                btnCancelar.Visible = true;
+                btnCancelar.Enabled = true;
+                groupBox1.Enabled = true;
+                txtNome.Enabled = false;
+                txtDesc.Focus();
+                dgCategoria.Enabled = true;
+                Insercao = false;
+                Edicao = true;
+                preencheCampos();
+            }
+            else
+                MessageBox.Show("Não há um registro selecionado.", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cancelaOperacao(object sender, EventArgs e)
@@ -198,26 +226,11 @@ namespace FinanSystem
             btnCancelar.Visible = false;
             groupBox1.Enabled = false;
             btnNovo.Focus();
-            if (Insercao && Edicao)
-            {
-                txtNome.Text = "Combustivel";
-                txtDesc.Text = "Consumo de combustível";
-                rbtnDespesa.Checked = true;
-                cbAtiva.Checked = true;
-                groupBox1.Enabled = false;
-            } else if (Insercao==false&&Edicao)
-            {
-                txtNome.Text = nome;
-                txtDesc.Text = desc;
-                rbtnDespesa.Checked = desp;
-                rbtnReceita.Checked = rec;
-                cbAtiva.Checked = ativa;
-                nome = string.Empty;
-                desc = string.Empty;
-            }
+            dgCategoria.Enabled = true;
             Insercao = false;
             Edicao = false;
-            
+            if (dgCategoria.RowCount < 0)
+            preencheCampos();
         }
 
         private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -238,7 +251,5 @@ namespace FinanSystem
                     cbAtiva.Checked = false;
             }
         }
-
-
     }
 }
