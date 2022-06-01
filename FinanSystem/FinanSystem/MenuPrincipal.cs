@@ -14,6 +14,7 @@ namespace FinanSystem
     {
         private int childFormNumber = 0;
         private static frmCategoria fCategoria;
+        private static frmConta fConta;
 
         public MenuPrincipal()
         {
@@ -144,6 +145,25 @@ namespace FinanSystem
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("201275 = Davie Schimidt Fonseca\n201278 = Samuel Pereira Camargo", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void subMenuConta_Click(object sender, EventArgs e)
+        {
+            if (fConta == null)
+            {
+                fConta = new frmConta();
+                fConta.FormClosed += new FormClosedEventHandler(fConta_Closed);
+            }
+            else
+            {
+                fConta.Activate();
+            }
+            fConta.MdiParent = this;
+            fConta.Show();
+        }
+        void fConta_Closed(object sender, FormClosedEventArgs e)
+        {
+            fConta = null;
         }
     }
 }
