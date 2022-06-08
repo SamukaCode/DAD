@@ -22,17 +22,7 @@ namespace FinanSystem
         {
             InitializeComponent();
             lstConta = conta.GeraContas();
-            lstConta = (new Conta()).GeraContas();
-        }
-        private void preencheCampos()
-        {
-            txtNome.Text = dgConta.Rows[dgConta.CurrentRow.Index].Cells[1].Value.ToString();
-            txtDesc.Text = dgConta.Rows[dgConta.CurrentRow.Index].Cells[2].Value.ToString();
-
-            if (Convert.ToInt16(dgConta.Rows[dgConta.CurrentRow.Index].Cells[3].Value.ToString()) == 1)
-                cbStatus.Checked = true;
-            else
-                cbStatus.Checked = true;
+            lstCategoria = (new Categoria()).GeraCategorias();
         }
 
         private void carregaComboCategoria(int id=0)
@@ -53,7 +43,6 @@ namespace FinanSystem
                     }
                 }
             }
-
             cboCategoria.Refresh();
         }
 
@@ -89,6 +78,7 @@ namespace FinanSystem
             dgConta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             carregaGridConta();
+
         }
 
         private void carregaGridConta()
@@ -107,6 +97,7 @@ namespace FinanSystem
                 int _id = Convert.ToInt32(dgConta.Rows[e.RowIndex].Cells[0].Value);
                 carregaComboCategoria(_id);
 
+
                 txtNome.Text = dgConta.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtDesc.Text = dgConta.Rows[e.RowIndex].Cells[2].Value.ToString();
 
@@ -115,6 +106,11 @@ namespace FinanSystem
                 else
                     cbStatus.Checked = false;
             }
+        }
+
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

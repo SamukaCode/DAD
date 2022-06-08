@@ -94,6 +94,7 @@ namespace FinanSystem
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(369, 33);
             this.cboCategoria.TabIndex = 5;
+            this.cboCategoria.SelectedIndexChanged += new System.EventHandler(this.cboCategoria_SelectedIndexChanged);
             // 
             // dgConta
             // 
