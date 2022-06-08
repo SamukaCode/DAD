@@ -74,6 +74,7 @@ namespace FinanSystem
             // 
             this.txtNome.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNome.Location = new System.Drawing.Point(12, 41);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(369, 32);
             this.txtNome.TabIndex = 3;
@@ -82,6 +83,7 @@ namespace FinanSystem
             // 
             this.txtDesc.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDesc.Location = new System.Drawing.Point(12, 116);
+            this.txtDesc.MaxLength = 100;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(618, 32);
             this.txtDesc.TabIndex = 4;
