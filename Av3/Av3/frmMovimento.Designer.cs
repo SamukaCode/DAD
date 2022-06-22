@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.gbox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rdComum = new System.Windows.Forms.RadioButton();
-            this.rdEspecial = new System.Windows.Forms.RadioButton();
-            this.txtConta = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtLimite = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.txtLimite = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtConta = new System.Windows.Forms.TextBox();
+            this.rdEspecial = new System.Windows.Forms.RadioButton();
+            this.rdComum = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnDepositar = new System.Windows.Forms.Button();
             this.gbox2 = new System.Windows.Forms.GroupBox();
+            this.btnLancar = new System.Windows.Forms.Button();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtMovimento = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnSacar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtMovimento = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.btnLancar = new System.Windows.Forms.Button();
             this.gbox1.SuspendLayout();
             this.gbox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,28 +67,50 @@
             this.gbox1.TabStop = false;
             this.gbox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label1
+            // txtSaldo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nr. Conta";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.txtSaldo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSaldo.Location = new System.Drawing.Point(491, 52);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(148, 34);
+            this.txtSaldo.TabIndex = 7;
             // 
-            // rdComum
+            // txtLimite
             // 
-            this.rdComum.AutoSize = true;
-            this.rdComum.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rdComum.Location = new System.Drawing.Point(172, 22);
-            this.rdComum.Name = "rdComum";
-            this.rdComum.Size = new System.Drawing.Size(129, 25);
-            this.rdComum.TabIndex = 1;
-            this.rdComum.TabStop = true;
-            this.rdComum.Text = "Conta Comum";
-            this.rdComum.UseVisualStyleBackColor = true;
+            this.txtLimite.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLimite.Location = new System.Drawing.Point(316, 52);
+            this.txtLimite.Name = "txtLimite";
+            this.txtLimite.Size = new System.Drawing.Size(148, 34);
+            this.txtLimite.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(491, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 30);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Saldo";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(316, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 30);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Limite";
+            // 
+            // txtConta
+            // 
+            this.txtConta.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtConta.Location = new System.Drawing.Point(6, 52);
+            this.txtConta.Name = "txtConta";
+            this.txtConta.Size = new System.Drawing.Size(149, 34);
+            this.txtConta.TabIndex = 3;
+            this.txtConta.Leave += new System.EventHandler(this.btnConta_Leave);
             // 
             // rdEspecial
             // 
@@ -102,49 +124,28 @@
             this.rdEspecial.Text = "Conta Especial";
             this.rdEspecial.UseVisualStyleBackColor = true;
             // 
-            // txtConta
+            // rdComum
             // 
-            this.txtConta.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtConta.Location = new System.Drawing.Point(6, 52);
-            this.txtConta.Name = "txtConta";
-            this.txtConta.Size = new System.Drawing.Size(149, 34);
-            this.txtConta.TabIndex = 3;
+            this.rdComum.AutoSize = true;
+            this.rdComum.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdComum.Location = new System.Drawing.Point(172, 22);
+            this.rdComum.Name = "rdComum";
+            this.rdComum.Size = new System.Drawing.Size(129, 25);
+            this.rdComum.TabIndex = 1;
+            this.rdComum.TabStop = true;
+            this.rdComum.Text = "Conta Comum";
+            this.rdComum.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(316, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 30);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Limite";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(491, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 30);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Saldo";
-            // 
-            // txtLimite
-            // 
-            this.txtLimite.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtLimite.Location = new System.Drawing.Point(316, 52);
-            this.txtLimite.Name = "txtLimite";
-            this.txtLimite.Size = new System.Drawing.Size(148, 34);
-            this.txtLimite.TabIndex = 6;
-            // 
-            // txtSaldo
-            // 
-            this.txtSaldo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSaldo.Location = new System.Drawing.Point(491, 52);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.Size = new System.Drawing.Size(148, 34);
-            this.txtSaldo.TabIndex = 7;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nr. Conta";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnDepositar
             // 
@@ -157,6 +158,7 @@
             this.btnDepositar.TabIndex = 1;
             this.btnDepositar.Text = "DEPOSITAR";
             this.btnDepositar.UseVisualStyleBackColor = false;
+            this.btnDepositar.Click += new System.EventHandler(this.btnDepositar_Click);
             // 
             // gbox2
             // 
@@ -173,6 +175,58 @@
             this.gbox2.TabStop = false;
             this.gbox2.Text = "MOVIMENTO:";
             // 
+            // btnLancar
+            // 
+            this.btnLancar.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnLancar.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLancar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLancar.Location = new System.Drawing.Point(491, 44);
+            this.btnLancar.Name = "btnLancar";
+            this.btnLancar.Size = new System.Drawing.Size(134, 41);
+            this.btnLancar.TabIndex = 5;
+            this.btnLancar.Text = "Lançar";
+            this.btnLancar.UseVisualStyleBackColor = false;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtValor.Location = new System.Drawing.Point(229, 51);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(148, 34);
+            this.txtValor.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(229, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 30);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Valor";
+            // 
+            // dtMovimento
+            // 
+            this.dtMovimento.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtMovimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtMovimento.Location = new System.Drawing.Point(6, 52);
+            this.dtMovimento.Name = "dtMovimento";
+            this.dtMovimento.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtMovimento.Size = new System.Drawing.Size(135, 33);
+            this.dtMovimento.TabIndex = 9;
+            this.dtMovimento.Value = new System.DateTime(2022, 6, 21, 23, 40, 22, 0);
+            this.dtMovimento.Leave += new System.EventHandler(this.dtMovimento_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(6, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 30);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Data";
+            // 
             // btnSacar
             // 
             this.btnSacar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -184,7 +238,7 @@
             this.btnSacar.TabIndex = 3;
             this.btnSacar.Text = "SACAR";
             this.btnSacar.UseVisualStyleBackColor = false;
-            this.btnSacar.Click += new System.EventHandler(this.button1_Click);
+            this.btnSacar.Click += new System.EventHandler(this.btnSacar_Click);
             // 
             // btnSair
             // 
@@ -197,57 +251,6 @@
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "S A I R";
             this.btnSair.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(6, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 30);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Data";
-            // 
-            // dtMovimento
-            // 
-            this.dtMovimento.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtMovimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtMovimento.Location = new System.Drawing.Point(6, 52);
-            this.dtMovimento.Name = "dtMovimento";
-            this.dtMovimento.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtMovimento.Size = new System.Drawing.Size(135, 33);
-            this.dtMovimento.TabIndex = 9;
-            this.dtMovimento.Value = new System.DateTime(2022, 6, 21, 23, 40, 22, 0);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(229, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 30);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Valor";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtValor.Location = new System.Drawing.Point(229, 51);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(148, 34);
-            this.txtValor.TabIndex = 8;
-            // 
-            // btnLancar
-            // 
-            this.btnLancar.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnLancar.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLancar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLancar.Location = new System.Drawing.Point(491, 44);
-            this.btnLancar.Name = "btnLancar";
-            this.btnLancar.Size = new System.Drawing.Size(134, 41);
-            this.btnLancar.TabIndex = 5;
-            this.btnLancar.Text = "Lançar";
-            this.btnLancar.UseVisualStyleBackColor = false;
             // 
             // frmMovimento
             // 
