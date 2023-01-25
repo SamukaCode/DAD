@@ -1,2 +1,2 @@
 # DAD
-Conteúdos disponibilizados na disciplina de DAD 2022
+Conteúdos da disciplina de Desenvolvimento de Aplicações Desktop.
